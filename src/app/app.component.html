@@ -1,17 +1,21 @@
 <div class="main">
-  <mat-slider [min]="MIN" [max]="MAX">
-    <input
-      matSliderThumb
-      [formControl]="percentForm"
-    >
-  </mat-slider>
+  <div class="form-container">
+    <mat-slider [min]="MIN" [max]="MAX">
+      <input
+        matSliderThumb
+        [formControl]="percentForm"
+      >
+    </mat-slider>
 
-  <div>percent: {{ percent$ | async }}</div>
+    <div>percent: {{ percent$ | async }}</div>
+  </div>
 
-  <app-venn
-    [percent]="(percent$ | async) ?? 50"
-    (emitCenter)="onClickCenter()"
-    (emitLeft)="onClickLeft()"
-    (emitRight)="onClickRight()"
-  ></app-venn>
+  <div class="venn-content">
+    <app-venn
+      [percent]="(percent$ | async) ?? 50"
+      (emitCenter)="onClickCenter()"
+      (emitLeft)="onClickLeft()"
+      (emitRight)="onClickRight()"
+    ></app-venn>
+  </div>
 </div>
