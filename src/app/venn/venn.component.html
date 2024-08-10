@@ -1,0 +1,24 @@
+<svg [attr.width]="WIDTH" [attr.height]="HEIGHT">
+  <path
+    [attr.d]="leftSidePath()"
+    fill="white"
+    stroke="black"
+    (click)="emitLeft.emit()"
+  />
+  <path
+    [attr.d]="rightSidePath()"
+    fill="white"
+    stroke="black"
+    (click)="emitRight.emit()"
+  />
+  <g (click)="emitCenter.emit()">
+    <path
+      [attr.d]="centerLeftSidePath()"
+      fill="red"
+    />
+    <path
+      [attr.d]="centerRightSidePath()"
+      fill="red"
+    />
+  </g>
+</svg>
